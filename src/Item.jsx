@@ -22,18 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */}
 
-import {Header} from "./Header.jsx";
-import {Items} from "./Items.jsx";
-import {Paragraph} from "./Paragraph.jsx";
+import PropTypes from 'prop-types';
 
-import packageJson from "../package.json";
-
-export default function App() {
+export function Item(props) {
     return (
-        <>
-            <Header />
-            <Paragraph version={packageJson.version} />
-            <Items />
-        </>
+        <li key={props.key}>{props.name}</li>
     );
 }
+
+Item.propTypes = {
+    key: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+};

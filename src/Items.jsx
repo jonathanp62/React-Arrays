@@ -22,18 +22,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */}
 
-import {Header} from "./Header.jsx";
-import {Items} from "./Items.jsx";
-import {Paragraph} from "./Paragraph.jsx";
+import {Item} from './Item.jsx';
 
-import packageJson from "../package.json";
+export function Items() {
+    const fruits = ["apple","orange","banana"];
 
-export default function App() {
     return (
-        <>
-            <Header />
-            <Paragraph version={packageJson.version} />
-            <Items />
-        </>
+        <div>
+            <p>A list of fruit items</p>
+            <ul>
+                {fruits.map( (fruit, index) =>
+                    (
+                        <Item key={index} name={fruit.toUpperCase()} />
+                    )
+                )}
+            </ul>
+        </div>
     );
 }
